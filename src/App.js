@@ -93,7 +93,7 @@ constructor(props) {
               paddingTop: 8,
               paddingLeft: 16,
               paddingBottom: 8
-          }} onClick={this.searchHandler.bind(this)}  placeholder='Enter search therm'/>
+          }} onChange={this.searchHandler.bind(this)}  placeholder='Enter search therm'/>
 
             {this.state.rows}
         </div>
