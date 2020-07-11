@@ -8,30 +8,21 @@ constructor(props) {
     super(props);
     this.state = []
 
-    const movies =  [
-        {
-            id: 0,
-            poster_src: 'https://kinogo.by/uploads/posts/2020-05/1590436745-680255110-parni-so-stvolami-KINOGO_BY.jpg' ,
-            title: 'Avengers',
-            overview: 'David works as a simple masseur. ' +
-                'A man no longer hopes to become a rich man, because his work does not bring a lot of money.'},
-        {
-            id: 1,
-            poster_src: 'https://kinogo.by/uploads/posts/2017-08/1502106425-658715812-skaylayn-2-KINOGO_BY.jpg',
-            title: 'Skyline 2',
-            overview: 'The fantastic movie “Skyline 2” is considered a continuation of the first part, ' +
-                'which told the story of several friends who woke up after a loud party and noticed how very bright beams ' +
-                'of light hit their window.'}
-    ]
-
-    // let movieRows =[]
-    // movies.forEach((movie)=> {
-    //     console.log(movie.title);
-    //     const movieRow = <MovieRow movie={movie}/>
-    //     movieRows.push(movieRow)
-    // })
-    //
-    // this.state = { rows: movieRows}
+    // const movies =  [
+    //     {
+    //         id: 0,
+    //         poster_src: 'https://kinogo.by/uploads/posts/2020-05/1590436745-680255110-parni-so-stvolami-KINOGO_BY.jpg' ,
+    //         title: 'Avengers',
+    //         overview: 'David works as a simple masseur. ' +
+    //             'A man no longer hopes to become a rich man, because his work does not bring a lot of money.'},
+    //     {
+    //         id: 1,
+    //         poster_src: 'https://kinogo.by/uploads/posts/2017-08/1502106425-658715812-skaylayn-2-KINOGO_BY.jpg',
+    //         title: 'Skyline 2',
+    //         overview: 'The fantastic movie “Skyline 2” is considered a continuation of the first part, ' +
+    //             'which told the story of several friends who woke up after a loud party and noticed how very bright beams ' +
+    //             'of light hit their window.'}
+    // ]
 
     this.performSearch('avengers')
 }
@@ -57,7 +48,7 @@ constructor(props) {
                 this.setState({rows: movieRows})
             },
             error: (xhr, status,err) => {
-                console.error('fetched error!!')
+                console.error('fetched error!!');
             }
         })
     }
@@ -70,35 +61,27 @@ constructor(props) {
 
     }
 
-  render() {
-    return (
-        <div>
-          <table className='tableBar'>
-            <tbody>
-            <tr>
-              <td>
-                <img width='50' src='green_app_icon.jpg' alt="logo icon"/>
-              </td>
-              <td width='8'/>
-              <td>
-                <h1>MovieDB Search</h1>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-          <input style={{
-              fontSize: 24,
-              display: 'block',
-              width: '99%',
-              paddingTop: 8,
-              paddingLeft: 16,
-              paddingBottom: 8
-          }} onChange={this.searchHandler.bind(this)}  placeholder='Enter search therm'/>
-
-            {this.state.rows}
-        </div>
-    )
-  }
+    render() {
+        return (
+            <div>
+                <table className='tableBar'>
+                    <tbody>
+                    <tr>
+                        <td className='image'>
+                            <img className='img' src='green_app_icon.jpg' alt="logo icon"/>
+                        </td>
+                        <td/>
+                        <td>
+                            <h1>MovieDB Search</h1>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <input className='input' onChange={this.searchHandler.bind(this)} placeholder='Enter search therm'/>
+                {this.state.rows}
+            </div>
+        )
+    }
 }
 
 export default App;
